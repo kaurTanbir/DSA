@@ -6,7 +6,7 @@ void* getElement(Stack *stack,int top){
 }
 Stack *create(int length, int elementSize){
     Stack* stack;
-    stack = calloc(sizeof(Stack), 1);
+    stack = (Stack*)calloc(sizeof(Stack), 1);
     stack->base = calloc(elementSize, length);
     stack->length = length;
     stack->top = 0;
@@ -14,8 +14,14 @@ Stack *create(int length, int elementSize){
     return stack;
 }
 bool push(Stack* stack,void* element){
-	if(isFull(stack))
-		return false;
+	void* newSize;
+        if(isFull(stack)){
+                newSize = realloc(stack->base, stack->length * 2 * stack->elementSize);
+                if(!newSize)
+                        return 0;
+                stack->base = newSize;
+                stack->length *= 2;
+        }
 	memcpy(getElement(stack,(stack->top++)), element, stack->elementSize);
 	return true;
 }

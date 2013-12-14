@@ -12,19 +12,19 @@ int areEqual(Stack expected, Stack actual){
     return 0 == memcmp(expected.base,actual.base,expected.length*expected.elementSize);
 }
 //----------------------create---------------------------
-void test_1_creates_a_stack_for_integer_elements (){
+void test_creates_a_stack_for_integer_elements (){
     int a[3] = {0,0,0};
    	Stack expected = {a,3,0,sizeof(int)};
     stack = create(3, sizeof(int));
     ASSERT(areEqual(expected, *stack));
 };
-void test_2_creates_a_stack_for_float_elements (){
+void test_creates_a_stack_for_float_elements (){
     float a[3] = {0,0,0};
    	Stack expected = {a,3,0,sizeof(float)};
     stack = create(3, sizeof(float));
     ASSERT(areEqual(expected, *stack));
 };
-void test_3_creates_a_stack_for_String_elements (){
+void test_creates_a_stack_for_String_elements (){
         String name[3] = {"","",""};
         Stack expected = {name,3,0,sizeof(String)};
         stack = create(3, sizeof(String));
@@ -32,7 +32,7 @@ void test_3_creates_a_stack_for_String_elements (){
 };
 
 //---------------------push----------------------------------
-void test_4_push_new_element_in_integer_stack (){
+void test_push_new_element_in_integer_stack (){
 	bool res;
     int newElement = 3;
     stack = create(3,sizeof(int));
@@ -42,14 +42,20 @@ void test_4_push_new_element_in_integer_stack (){
 	ASSERT(*(int*)stack -> base == 3);
 };
 
-void test_5_push_new_element_in_full_stack(){
-	int a[] = {0,0,0};
-   	Stack stack = {a,3,3,sizeof(int)};
-	int newElement = 3;
-	bool res = push(&stack, &newElement);
-	ASSERT(false == res);
+
+void test_increment_of_the_length_of_stack_if_stack_is_full(){
+        int nums[2] = {23,15};
+        int element = 12;
+        int result;
+        stack = create(2, sizeof(int));
+        memcpy(stack->base, nums, sizeof(nums));
+        stack->top = 2;
+        result = push(stack, &element);
+        ASSERT(1==result);
+        ASSERT(3 == stack->top && 4 == stack->length);
+        ASSERT(12 == *(int*)(stack->base + 2*sizeof(int)));
 }
-void test_6_adds_the_given_Strings_at_the_top_of_the_stack(){
+void test_adds_the_given_Strings_at_the_top_of_the_stack(){
         String names[2] = {"tannu","tanu"};
         String nname = "tannu";
         String name = "tanu";
