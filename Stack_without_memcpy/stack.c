@@ -25,7 +25,7 @@ int push(Stack* stack,void* element){
         stack->base = temp;
         stack->length *= 2;
     }
-    *(stack->base + (stack->top++ * sizeof(void*))) = element;
+    *(stack->base + (stack->top++ )) = element;
     return 1;
 }
 
@@ -36,11 +36,11 @@ int isEmpty(Stack* stack){
 void* pop(Stack* stack){
     if(isEmpty(stack)) 
     	return NULL;
-    return *(stack->base + --stack->top * sizeof(void*));
+    return *(stack->base + --stack->top );
 };
 
 void* peek(Stack* stack){
     if(isEmpty(stack))
     	return NULL;
-    return *(stack->base + ((stack->top-1) * sizeof(void*)));
+    return *(stack->base + stack->top-1);
 }
