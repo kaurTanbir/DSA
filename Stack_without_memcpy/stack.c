@@ -11,13 +11,13 @@ Stack* create(int length){
     return stack;
 }
 
-int isFull(Stack* stack){
-    return stack->top==stack->length;
+int isFull(Stack stack){
+    return stack.top == stack.length;
 }
 
 int push(Stack* stack,void* element){
     void* temp;
-    if(isFull(stack)){
+    if(isFull(*stack)){
         temp = realloc(stack->base, stack->length * 2 * sizeof(void*));
         stack->base = temp;
         stack->length *= 2;
@@ -26,18 +26,18 @@ int push(Stack* stack,void* element){
     return 1;
 }
 
-int isEmpty(Stack* stack){
-    return stack->top == 0;
+int isEmpty(Stack stack){
+    return stack.top == 0;
 }
 
 void* pop(Stack* stack){
-    if(isEmpty(stack)) 
+    if(isEmpty(*stack)) 
     	return NULL;
     return *(stack->base + --stack->top );
 };
 
-void* peek(Stack* stack){
+void* peek(Stack stack){
     if(isEmpty(stack))
     	return NULL;
-    return *(stack->base + stack->top-1);
+    return *(stack.base + (stack.top-1));
 }

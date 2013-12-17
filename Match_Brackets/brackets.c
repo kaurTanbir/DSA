@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <String.h>
-#include "../stack/stack.h"
+#include "brackets.h"
 
-int matchBrackets(char element,Stack* stack,char openBracket,char closeBracket){
+int match(char element,Stack* stack,char openBracket,char closeBracket){
     void* currentTop;
     if(closeBracket == element){
         currentTop = peek(stack);
@@ -18,7 +18,7 @@ int isStackEmpty(Stack *stack){
         return 1;
     return 0;
 }
-int startMatching(const char* input){
+int doesBracketsMatch(const char* input){
 	Stack* stack;
     int i, limit;
     limit = strlen(input);
@@ -28,13 +28,13 @@ int startMatching(const char* input){
         if(input[i]=='{' || input[i]=='[' || input[i]=='('){
                 push(stack, (void*)&input[i]);
         };
-        if(!matchBrackets(input[i], stack, '(', ')'))
+        if(!match(input[i], stack, '(', ')'))
         	return 0;
 
-        if(!matchBrackets(input[i], stack, '[', ']'))
+        if(!match(input[i], stack, '[', ']'))
 			return 0;
 
-		if (!matchBrackets(input[i], stack, '{', '}'))
+		if (!match(input[i], stack, '{', '}'))
 			return 0;
     }
     return isStackEmpty(stack);

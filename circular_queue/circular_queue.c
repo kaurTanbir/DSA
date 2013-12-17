@@ -1,6 +1,7 @@
 #include "circular_queue.h"
 #include <memory.h>
 #include <stdlib.h>
+
 Queue* create(int elementSize, int length){
     Queue* queue;
     queue = (Queue*)malloc(sizeof(Queue));
@@ -10,6 +11,14 @@ Queue* create(int elementSize, int length){
     queue->rear = -1;
     queue->length = length;
     return queue;
+}
+
+int queueIsFull(Queue* queue){
+    if(queue->front == 0 && queue->rear == queue->length-1)
+        return 1;
+    if(queue->front == queue->rear+1)
+        return 1;
+    return 0;
 }
 int enqueue(Queue* queue, void* element){
     if(queueIsFull(queue))
@@ -25,12 +34,11 @@ int enqueue(Queue* queue, void* element){
     memmove(queue->base+(queue->rear*queue->elementSize), element, queue->elementSize);
     return 1;
 }
-int queueIsFull(Queue* queue){
-	if(queue->front == 0 && queue->rear == queue->length-1)
-		return 1;
-	if(queue->front == queue->rear+1)
-		return 1;
-	return 0;
+
+int queueIsEmpty(Queue* queue){
+    if(queue->rear == -1 && queue->front == -1)
+        return 1;
+    return 0;
 }
 void* dequeue(Queue *queue){
 	void* copyFrom;
@@ -41,9 +49,4 @@ void* dequeue(Queue *queue){
 	memcpy(deletedElement,copyFrom, queue->elementSize);
 	queue->front++;
 	return deletedElement;
-}
-int queueIsEmpty(Queue* queue){
-	if(queue->rear == -1 && queue->front == -1)
-		return 1;
-	return 0;
 }

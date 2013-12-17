@@ -1,6 +1,5 @@
 #include "testUtils.h"
 #include "bsearch.h"
-typedef char String[256];
 //--------------------compare functions------------------------------------
 
 int compareInt ( void* a,  void* b){

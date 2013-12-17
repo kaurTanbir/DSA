@@ -1,7 +1,5 @@
 #include "testUtils.h"
 #include "stack.h"
-#include <stdlib.h>
-#include <stdio.h>
 #include <string.h>
 
 //--------------------------create----------------------------------
@@ -15,36 +13,34 @@ void test_create_stack(){
 
 void test_push_integer_element_at_start_of_stack(){
     Stack* stack;
-    int element = 10;
+    int element = 10,
+        res;
     stack = createStack();
-    push(stack , &element);
-    ASSERT(*(int*)stack->head->data == 10);         
-    ASSERT(stack->length == 1);         
+    res = push(stack , &element);
+    ASSERT(1 == res);         
 }
 void test_push_double_element_at_start_of_stack(){
     Stack* stack;
-    double element = 10.0;
+    double element = 10.0;int res;
     stack = createStack();
-    push(stack , &element);
-    ASSERT(*(double*)stack->head->data == 10.0);         
-    ASSERT(stack->length == 1);         
+    res = push(stack , &element);
+    ASSERT(1 == res);         
 }
 void test_push_character_element_at_start_of_stack(){
     Stack* stack;
-    char element = 'a';
+    char element = 'a';int res;
     stack = createStack();
-    push(stack , &element);
-    ASSERT(*(char*)stack->head->data == 'a');         
-    ASSERT(stack->length == 1);         
+    res = push(stack , &element);
+    ASSERT(1 == res);         
 }
 void test_push_string_element_at_start_of_stack(){
     Stack* stack;
     String element;
+    int res;
     strcpy(element , "abc");
     stack = createStack();
-    push(stack , &element);
-    ASSERT(!strcmp(*(String*)stack->head->data , "abc"));         
-    ASSERT(stack->length == 1);         
+    res = push(stack , &element);
+    ASSERT(1 == res);         
 }
 
 //-----------------------------pop----------------------------------------- 
@@ -59,7 +55,6 @@ void test_pop_int_element_at_top_of_stack(){
     push(stack , &element1);
     push(stack , &element2);
     data =(int)pop(stack);         
-    ASSERT(stack->length == 1);         
     ASSERT(*(int*)data == 20);         
 }
 void test_pop_double_element_at_top_of_stack(){
@@ -70,7 +65,6 @@ void test_pop_double_element_at_top_of_stack(){
     push(stack , &element1);
     push(stack , &element2);
     data =(int)pop(stack);         
-    ASSERT(stack->length == 1);         
     ASSERT(*(double*)data == 20.0);         
 }
 
@@ -83,6 +77,6 @@ void test_gives_the_topmost_int_element_at_top_of_stack(){
     stack = createStack();
     push(stack , &element1);
     push(stack , &element2);
-    data =(int)top(stack);         
+    data =(int)top(*stack);         
     ASSERT(*(int*)data == 20);         
 }

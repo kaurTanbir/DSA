@@ -16,7 +16,7 @@ void test_adds_the_given_integer_to_the_stack(){
     int* res;
     stack = create(1);
     push(stack, &num);
-    res = peek(stack);
+    res = peek(*stack);
     ASSERT(10 == *res);
 }
 
@@ -25,7 +25,7 @@ void test_adds_the_given_doubles_to_the_stack(){
     double* res;
     stack = create(2);
     push(stack, &first);
-    res = peek(stack);
+    res = peek(*stack);
     ASSERT(10.0 == *res);
 }
 
@@ -36,7 +36,7 @@ void test_adds_the_given_characters_to_the_stack(){
     stack = create(2);
     push(stack, &first);
     push(stack, &second);
-    res = peek(stack);
+    res = peek(*stack);
     ASSERT('b' == *res);
 }
 
@@ -45,7 +45,7 @@ void test_adds_the_given_Strings_at_the_top_of_the_stack(){
     String* res;
     stack = create(1);
     push(stack, &name1);
-    res = peek(stack);
+    res = peek(*stack);
     ASSERT(0 == strcmp(name1,*res));
 
 
@@ -122,7 +122,7 @@ void test_gives_the_top_most_integer(){
     int num = 10;
     stack = create(1);
     push(stack, &num);
-    result = peek(stack);
+    result = peek(*stack);
     ASSERT(10 == *result);
 };
 
@@ -133,7 +133,7 @@ void test_gives_the_top_most_double(){
     stack = create(2);
     push(stack, &first);
     push(stack, &second);
-    result = peek(stack);
+    result = peek(*stack);
     ASSERT(20.0 == *result);
 };
 
@@ -144,7 +144,7 @@ void test_gives_the_top_most_character(){
 	stack = create(3);
 	push(stack, &first);
 	push(stack, &second);
-	result = peek(stack);
+	result = peek(*stack);
 	ASSERT('b' == *result);
 };
 
@@ -155,7 +155,7 @@ void test_gives_the_top_most_element_from_the_stack_Strings(){
     stack = create(2);
     push(stack, &name1);
     push(stack, &name2);
-    result = peek(stack);
+    result = peek(*stack);
     ASSERT(0 == strcmp("def", result));
 };
 
@@ -163,7 +163,7 @@ void test_gives_the_top_most_element_from_the_stack_Strings(){
 void test_returns_null_when_trying_access_the_element_if_top_is_zero(){
     void* result;
     stack = create(3);
-    result = peek(stack);
+    result = peek(*stack);
     ASSERT(NULL == result);
 }
 

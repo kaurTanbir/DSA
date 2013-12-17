@@ -12,6 +12,11 @@ Queue* create(int elementSize, int length){
     return queue;
 }
 
+int queueIsFull(Queue* queue){
+	if(queue->length == queue->rear)
+		return 1;
+	return 0;
+}
 int enqueue(Queue* queue, void* element){
 	void *copyTo;
     if(queueIsFull(queue))
@@ -20,12 +25,12 @@ int enqueue(Queue* queue, void* element){
     memmove(copyTo , element, queue->elementSize);
     return 1;
 }
-int queueIsFull(Queue* queue){
-	if(queue->length == queue->rear)
+
+int queueIsEmpty(Queue* queue){
+	if(queue->rear == queue->front)
 		return 1;
 	return 0;
 }
-
 void* dequeue(Queue *queue){
 	void* deletedElement=malloc(queue->elementSize);
 	void *copyFrom, *copyTo;
@@ -38,10 +43,5 @@ void* dequeue(Queue *queue){
 	noOfBytesToCopy = (queue->length-1)*queue->elementSize;
 	memmove(copyTo, copyFrom, noOfBytesToCopy);
 	return deletedElement;
-}
-int queueIsEmpty(Queue* queue){
-	if(queue->rear == queue->front)
-		return 1;
-	return 0;
 }
 

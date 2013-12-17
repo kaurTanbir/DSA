@@ -8,20 +8,20 @@ DList* list;
 void tearDown(){
         free(list);
 }
-void test_1_gives_an_Doubly_link_list_with_head_NULL(){
+void test_gives_an_Doubly_link_list_with_head_NULL(){
         list = create();
         ASSERT(NULL == list->head);
         ASSERT(0 == list->length);
 }
 
-void test_2_create_node(){
+void test_create_node(){
     Node expected = {NULL,NULL,NULL};
     Node *actual = createNode(NULL,NULL);
     ASSERT(expected.next == actual->next);
     ASSERT(expected.prev == actual->prev);
 }
 
-void test_3_inserts_an_element_at_begining_of_list(){
+void test_inserts_an_element_at_begining_of_list(){
         int* num = malloc(sizeof(int));
         list = create();
         *num = 10;
@@ -32,7 +32,7 @@ void test_3_inserts_an_element_at_begining_of_list(){
         ASSERT(1 == list->length);
 }
 
-void test_4_inserts_element_at_the_end_of_linkList(){
+void test_inserts_element_at_the_end_of_linkList(){
         int* arr = malloc(sizeof(int)*3);
         Node *res1,*res2;
         list = create();
@@ -49,7 +49,7 @@ void test_4_inserts_element_at_the_end_of_linkList(){
         ASSERT(3 == list->length);
 }
 
-void test_5_adds_element_in_middle_of_linkList(){
+void test_adds_element_in_middle_of_linkList(){
     Node *second;
     int* arr = malloc(sizeof(int)*3);
     arr[0] = 1;arr[1] = 2;arr[2] = 3;
@@ -60,7 +60,7 @@ void test_5_adds_element_in_middle_of_linkList(){
     ASSERT(1 == *(int*)list->head->data);
     ASSERT(2 == *(int*)second->data);
 }
-void test_6_deletes_first_element_in_list(){
+void test_deletes_first_element_in_list(){
     int* num = malloc(sizeof(int));
     *num = 1;
            list = create();
@@ -70,7 +70,7 @@ void test_6_deletes_first_element_in_list(){
     ASSERT(NULL == list->head);
 }
 
-void test_7_deletes_last_element_in_the_list(){
+void test_deletes_last_element_in_the_list(){
     int* arr = malloc(sizeof(int)*2);
         list = create();
         arr[0] = 1;arr[1] = 2;
@@ -81,7 +81,7 @@ void test_7_deletes_last_element_in_the_list(){
     ASSERT(NULL == list->head->next);
 }
 
-void test_8_deletes_element_in_between_the_list(){
+void test_deletes_element_in_between_the_list(){
     int* arr = malloc(sizeof(int)*3);
         list = create();
         arr[0] = 1;arr[1] = 2;arr[2] = 3;
