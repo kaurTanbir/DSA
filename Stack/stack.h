@@ -1,14 +1,6 @@
-#include <stdbool.h>
-typedef struct{
-	void* base;
-	int length;
-	int top;
-	int elementSize;
-
-}Stack;
-typedef char String[256];
+#include "./include/custom_dataType.h"
 
 Stack* create(int length,int elementSize);
-bool push(Stack* stack,void* element);
+int push(Stack* stack,void* element);
 void* pop(Stack* stack);
-void* peek(Stack* stack);
+void* peek(Stack stack);
