@@ -2,7 +2,6 @@
 #include <stdlib.h>
 
 
-
 Stack* create(int length){
     Stack* stack;
     stack = (Stack*)calloc(sizeof(Stack), 1);
@@ -20,8 +19,6 @@ int push(Stack* stack,void* element){
     void* temp;
     if(isFull(stack)){
         temp = realloc(stack->base, stack->length * 2 * sizeof(void*));
-        if(!temp)
-            return 0;
         stack->base = temp;
         stack->length *= 2;
     }

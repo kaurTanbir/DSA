@@ -49,11 +49,6 @@ int main(){
 	fixtureSetup();
 	resetTestCount();
 
-	testStarted("test_creates_a_stack_for_with_given_length");
-	setup();
-		test_creates_a_stack_for_with_given_length();
-	tearDown();
-	testEnded();
 	testStarted("test_adds_the_given_integer_to_the_stack");
 	setup();
 		test_adds_the_given_integer_to_the_stack();
@@ -77,6 +72,11 @@ int main(){
 	testStarted("test_doubles_the_length_of_stack_if_stack_is_full");
 	setup();
 		test_doubles_the_length_of_stack_if_stack_is_full();
+	tearDown();
+	testEnded();
+	testStarted("test_adds_the_given_integer_to_the_stack_and_returns_1");
+	setup();
+		test_adds_the_given_integer_to_the_stack_and_returns_1();
 	tearDown();
 	testEnded();
 	testStarted("test_removes_the_topmost_integer_from_the_stack");
@@ -124,26 +124,6 @@ int main(){
 		test_returns_null_when_trying_access_the_element_if_top_is_zero();
 	tearDown();
 	testEnded();
-	testStarted("test_tells_the_stack_is_empty");
-	setup();
-		test_tells_the_stack_is_empty();
-	tearDown();
-	testEnded();
-	testStarted("test_tells_the_stack_is_not_empty");
-	setup();
-		test_tells_the_stack_is_not_empty();
-	tearDown();
-	testEnded();
-	testStarted("test_tells_the_stack_is_full_integers");
-	setup();
-		test_tells_the_stack_is_full_integers();
-	tearDown();
-	testEnded();
-	testStarted("test_tells_the_stack_is_not_full");
-	setup();
-		test_tells_the_stack_is_not_full();
-	tearDown();
-	testEnded();
 
 	summarizeTestCount();
 	fixtureTearDown();
@@ -151,8 +131,6 @@ int main(){
 }
 
 void setup(){}
-
-void tearDown(){}
 
 void fixtureSetup(){}
 
