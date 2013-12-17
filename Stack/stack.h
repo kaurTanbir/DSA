@@ -12,5 +12,3 @@ Stack* create(int length,int elementSize);
 bool push(Stack* stack,void* element);
 void* pop(Stack* stack);
 void* peek(Stack* stack);
-int isEmpty(Stack* stack);
-int isFull(Stack* stack);

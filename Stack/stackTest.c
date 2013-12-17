@@ -5,31 +5,7 @@
 //create setup, tearDown, fixtureSetup, fixtureTearDown methods if needed
 Stack* stack;
 
-int areEqual(Stack expected, Stack actual){
-    int result = expected.length == actual.length && expected.top == actual.top && 
-    				expected.elementSize == actual.elementSize;
-    if(!result) return result;
-    return 0 == memcmp(expected.base,actual.base,expected.length*expected.elementSize);
-}
-//----------------------create---------------------------
-void test_creates_a_stack_for_integer_elements (){
-    int a[3] = {0,0,0};
-   	Stack expected = {a,3,0,sizeof(int)};
-    stack = create(3, sizeof(int));
-    ASSERT(areEqual(expected, *stack));
-};
-void test_creates_a_stack_for_float_elements (){
-    float a[3] = {0,0,0};
-   	Stack expected = {a,3,0,sizeof(float)};
-    stack = create(3, sizeof(float));
-    ASSERT(areEqual(expected, *stack));
-};
-void test_creates_a_stack_for_String_elements (){
-        String name[3] = {"","",""};
-        Stack expected = {name,3,0,sizeof(String)};
-        stack = create(3, sizeof(String));
-        ASSERT(areEqual(expected, *stack));
-};
+
 
 //---------------------push----------------------------------
 void test_push_new_element_in_integer_stack (){
@@ -38,8 +14,6 @@ void test_push_new_element_in_integer_stack (){
     stack = create(3,sizeof(int));
 	res = push(stack, &newElement);
 	ASSERT(res == true);
-	ASSERT(stack -> top == 1);
-	ASSERT(*(int*)stack -> base == 3);
 };
 
 
@@ -52,8 +26,6 @@ void test_increment_of_the_length_of_stack_if_stack_is_full(){
         stack->top = 2;
         result = push(stack, &element);
         ASSERT(1==result);
-        ASSERT(3 == stack->top && 4 == stack->length);
-        ASSERT(12 == *(int*)(stack->base + 2*sizeof(int)));
 }
 void test_adds_the_given_Strings_at_the_top_of_the_stack(){
         String names[2] = {"tannu","tanu"};

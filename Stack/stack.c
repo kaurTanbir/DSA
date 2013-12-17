@@ -13,6 +13,14 @@ Stack *create(int length, int elementSize){
     stack->elementSize = elementSize;
     return stack;
 }
+
+int isFull(Stack* stack){
+        if(stack->top==stack->length)
+                return 1;
+        return 0;
+}
+
+
 bool push(Stack* stack,void* element){
 	void* newSize;
         if(isFull(stack)){
@@ -25,6 +33,11 @@ bool push(Stack* stack,void* element){
 	memcpy(getElement(stack,(stack->top++)), element, stack->elementSize);
 	return true;
 }
+int isEmpty(Stack* stack){
+        if(stack->top)
+                return 0;
+        return 1;
+}
 void* pop(Stack* stack){
     if(isEmpty(stack))
         return NULL;
@@ -34,15 +47,4 @@ void* peek(Stack* stack){
         return getElement(stack,(stack->top-1));
 }
 
-int isEmpty(Stack* stack){
-        if(stack->top)
-                return 0;
-        return 1;
-}
-
-int isFull(Stack* stack){
-        if(stack->top==stack->length)
-                return 1;
-        return 0;
-}
 
