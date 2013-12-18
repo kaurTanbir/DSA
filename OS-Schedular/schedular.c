@@ -1,6 +1,7 @@
 #include "schedular.h"
 #include <stdlib.h>
 #include <string.h>
+
 Scheduler* create(){
     Scheduler *queue = calloc(sizeof(Scheduler),1);
     return queue;
@@ -19,7 +20,7 @@ int insertProcessInBetween(Scheduler *queue,Process *previous,Process *process ,
     return ++queue->length;
 }
 int insertProcess(Scheduler *queue, Process *process){
-    Process *previous,*next,*temp;int i = 0;
+    Process *previous,*next,*temp;
     temp = queue->head;
     if(queue->length == 0)                
         return insertAtStart(queue, process);
@@ -35,31 +36,27 @@ int insertProcess(Scheduler *queue, Process *process){
     process->next = NULL;
     return ++queue->length;
 }
-int removeProcessInBetween(Scheduler *queue,Process *previous ,Process *next){
-    previous->next = next->next;
-    return --queue->length;
-}
-
-int removeProcess(Scheduler *queue){
-    Process *temp,*previous,*next;int i = 0;
+Process* removeProcess(Scheduler *queue){
+    Process *temp,*previous,*next;
     temp = queue->head;
-
     if(queue->length == 1){
         if(temp->processTime == 0)
             queue->head = NULL;
-        return --queue->length;
-}
-	if(temp->processTime == 0)
+        return temp;
+    }
+    if(temp->processTime == 0)
         queue->head = temp->next;
-	for(;temp->next != NULL;temp = temp->next){
+    for(;temp->next != NULL;temp = temp->next){
         previous = temp;
         next = temp->next;
-        if(next->processTime == 0)
-            return removeProcessInBetween(queue ,previous ,next);
+        if(next->processTime == 0){
+            previous->next = next->next;
+            return next;
+        }
     }
     if(NULL == temp->next){
         previous->next = NULL;
-        return --queue->length;
+        return previous;
     };
     return 0;
 }

@@ -49,14 +49,19 @@ int main(){
 	fixtureSetup();
 	resetTestCount();
 
-	testStarted("test_push_new_element_in_integer_stack");
+	testStarted("test_adds_the_given_integer_to_the_stack");
 	setup();
-		test_push_new_element_in_integer_stack();
+		test_adds_the_given_integer_to_the_stack();
 	tearDown();
 	testEnded();
-	testStarted("test_increment_of_the_length_of_stack_if_stack_is_full");
+	testStarted("test_adds_the_given_doubles_to_the_stack");
 	setup();
-		test_increment_of_the_length_of_stack_if_stack_is_full();
+		test_adds_the_given_doubles_to_the_stack();
+	tearDown();
+	testEnded();
+	testStarted("test_adds_the_given_characters_to_the_stack");
+	setup();
+		test_adds_the_given_characters_to_the_stack();
 	tearDown();
 	testEnded();
 	testStarted("test_adds_the_given_Strings_at_the_top_of_the_stack");
@@ -64,29 +69,59 @@ int main(){
 		test_adds_the_given_Strings_at_the_top_of_the_stack();
 	tearDown();
 	testEnded();
-	testStarted("test_pop_the_top_most_element_of_stack");
+	testStarted("test_doubles_the_length_of_stack_if_stack_is_full");
 	setup();
-		test_pop_the_top_most_element_of_stack();
+		test_doubles_the_length_of_stack_if_stack_is_full();
 	tearDown();
 	testEnded();
-	testStarted("test_pop_the_element_of_empty_stack");
+	testStarted("test_adds_the_given_integer_to_the_stack_and_returns_1");
 	setup();
-		test_pop_the_element_of_empty_stack();
+		test_adds_the_given_integer_to_the_stack_and_returns_1();
 	tearDown();
 	testEnded();
-	testStarted("test_pop_the_element_from_a_string_stack");
+	testStarted("test_removes_the_topmost_integer_from_the_stack");
 	setup();
-		test_pop_the_element_from_a_string_stack();
+		test_removes_the_topmost_integer_from_the_stack();
 	tearDown();
 	testEnded();
-	testStarted("test_gives_the_top_most_element_of_stack");
+	testStarted("test_removes_the_top_most_double_element_from_the_stack");
 	setup();
-		test_gives_the_top_most_element_of_stack();
+		test_removes_the_top_most_double_element_from_the_stack();
 	tearDown();
 	testEnded();
-	testStarted("test_gives_the_top_most_element_of_stack_String");
+	testStarted("test_removes_the_top_most_character_from_the_stack");
 	setup();
-		test_gives_the_top_most_element_of_stack_String();
+		test_removes_the_top_most_character_from_the_stack();
+	tearDown();
+	testEnded();
+	testStarted("test_returns_null_when_deleted_from_empty_stack");
+	setup();
+		test_returns_null_when_deleted_from_empty_stack();
+	tearDown();
+	testEnded();
+	testStarted("test_gives_the_top_most_integer");
+	setup();
+		test_gives_the_top_most_integer();
+	tearDown();
+	testEnded();
+	testStarted("test_gives_the_top_most_double");
+	setup();
+		test_gives_the_top_most_double();
+	tearDown();
+	testEnded();
+	testStarted("test_gives_the_top_most_character");
+	setup();
+		test_gives_the_top_most_character();
+	tearDown();
+	testEnded();
+	testStarted("test_gives_the_top_most_element_from_the_stack_Strings");
+	setup();
+		test_gives_the_top_most_element_from_the_stack_Strings();
+	tearDown();
+	testEnded();
+	testStarted("test_returns_null_when_trying_access_the_element_if_top_is_zero");
+	setup();
+		test_returns_null_when_trying_access_the_element_if_top_is_zero();
 	tearDown();
 	testEnded();
 
@@ -96,8 +131,6 @@ int main(){
 }
 
 void setup(){}
-
-void tearDown(){}
 
 void fixtureSetup(){}
 
