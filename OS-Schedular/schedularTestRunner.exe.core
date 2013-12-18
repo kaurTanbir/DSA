@@ -1,0 +1,21 @@
+[main] schedularTestRunner 1000 (0) exception: trapped!
+[main] schedularTestRunner 1000 (0) exception: code 0xC0000005 at 0x4020B8
+[main] schedularTestRunner 1000 (0) exception: ax 0xA0317E8 bx 0x245FDE0 cx 0x61061104 dx 0x0
+[main] schedularTestRunner 1000 (0) exception: si 0x245FC88 di 0x245FDA8 bp 0x245FB5C sp 0x245FB4C
+[main] schedularTestRunner 1000 (0) exception: exception is: STATUS_ACCESS_VIOLATION
+[main] schedularTestRunner 1000 (0) stack: Stack trace:
+[main] schedularTestRunner 1000 (0) stack: frame 0: sp = 0x245F6EC, pc = 0x6100A2C3
+[main] schedularTestRunner 1000 (0) stack: frame 1: sp = 0x245F728, pc = 0x7789B499
+[main] schedularTestRunner 1000 (0) stack: frame 2: sp = 0x245F74C, pc = 0x7789B46B
+[main] schedularTestRunner 1000 (0) stack: frame 3: sp = 0x245F7FC, pc = 0x77850133
+[main] schedularTestRunner 1000 (0) stack: frame 4: sp = 0x245FB5C, pc = 0x40176F
+[main] schedularTestRunner 1000 (0) stack: frame 5: sp = 0x245FDC0, pc = 0x4012FF
+[main] schedularTestRunner 1000 (0) stack: frame 6: sp = 0x245FDC8, pc = 0x61004402
+[main] schedularTestRunner 1000 (0) stack: frame 7: sp = 0x245FF50, pc = 0x61004420
+[main] schedularTestRunner 1000 (0) stack: frame 8: sp = 0x245FF5C, pc = 0x4022BE
+[main] schedularTestRunner 1000 (0) stack: frame 9: sp = 0x245FF6C, pc = 0x40103A
+[main] schedularTestRunner 1000 (0) stack: frame 10: sp = 0x245FF88, pc = 0x76A2336A
+[main] schedularTestRunner 1000 (0) stack: frame 11: sp = 0x245FF94, pc = 0x77879F72
+[main] schedularTestRunner 1000 (0) stack: frame 12: sp = 0x245FFD4, pc = 0x77879F45
+[main] schedularTestRunner 1000 (0) stack: frame 13: sp = 0x245FFEC, pc = 0x0
+[main] schedularTestRunner 1000 (0) stack: End of stack trace
