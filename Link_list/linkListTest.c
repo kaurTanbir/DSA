@@ -83,12 +83,37 @@ void test_deletes_last_element_in_the_list(){
 
 void test_deletes_element_in_between_the_list(){
     int* arr = malloc(sizeof(int)*3);
-        list = create();
-        arr[0] = 1;arr[1] = 2;arr[2] = 3;
+    list = create();
+    arr[0] = 1;arr[1] = 2;arr[2] = 3;
     insertNode(list,&arr[0], 0);
     insertNode(list,&arr[1], 1);
     insertNode(list,&arr[2], 2);
     ASSERT(deleteNode(list, 1));
     ASSERT(2 == list->length);
     ASSERT(3 == *(int*)list->head->next->data);
+}
+
+
+void test_hasnext_of_getiterator_gives_true_if_list_not_empty(){
+        Iterator it;
+        int number1 = 5;
+        list = create();
+        insertNode(list,&number1,0);
+        it = getIterator(list);
+        ASSERT(1 == it.hasNext(&it));
+}
+void test_hasnext_of_getiterator_gives_false_if_list_not_empty(){
+        Iterator it;
+        list = create();
+        it = getIterator(list);
+        ASSERT(0 == it.hasNext(&it));
+}
+void test_next_of_getiterator_gives_next_data(){
+        Iterator it;
+        int number1 = 5;
+        list = create();
+        insertNode(list, &number1, 0);
+        it = getIterator(list);
+        if(it.hasNext(&it))
+        ASSERT(5 == *(int*)it.next(&it));
 }

@@ -9,7 +9,7 @@ DList* create(){
 };
 
 Node* createNode(Node *prevAddress, Node *nextAddress){
-           Node *element = malloc(sizeof(Node));
+    Node *element = malloc(sizeof(Node));
     element->prev = prevAddress;
     element->next = nextAddress;
     return element;
@@ -89,3 +89,37 @@ int deleteNode(DList* list,int index){
         return deleteLastElement(list,head);
     return deleteAtGivenIndex(list,head);            
 };
+int hasNextForList(Iterator *it){
+        DList *dList;
+        int i = 0;
+        Node *temp;
+        dList = (DList*)it->list;
+        temp = dList->head;
+        for(i = 0;i < it->position;i++)
+                temp = temp->next;
+        if(NULL == temp)
+                return 0;
+        return 1;
+}
+void* nextForList(Iterator *it){
+        DList *dList;
+        int i = 0;
+        Node *temp;
+        dList = (DList*)it->list;
+        temp = dList->head;
+        for(i = 0;i < it->position;i++)
+                temp = temp->next;
+        if(it->position == dList->length)
+                return NULL;
+        it->position++;
+        return temp->data;
+}
+Iterator getIterator(DList *dList){
+        Iterator listIterator;
+        listIterator.position = 0;
+        listIterator.list = dList;
+        listIterator.hasNext = &hasNextForList;
+        listIterator.next = &nextForList;
+        return listIterator;
+}
+

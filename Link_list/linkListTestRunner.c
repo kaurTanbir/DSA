@@ -89,6 +89,21 @@ int main(){
 		test_deletes_element_in_between_the_list();
 	tearDown();
 	testEnded();
+	testStarted("test_hasnext_of_getiterator_gives_true_if_list_not_empty");
+	setup();
+		test_hasnext_of_getiterator_gives_true_if_list_not_empty();
+	tearDown();
+	testEnded();
+	testStarted("test_hasnext_of_getiterator_gives_false_if_list_not_empty");
+	setup();
+		test_hasnext_of_getiterator_gives_false_if_list_not_empty();
+	tearDown();
+	testEnded();
+	testStarted("test_next_of_getiterator_gives_next_data");
+	setup();
+		test_next_of_getiterator_gives_next_data();
+	tearDown();
+	testEnded();
 
 	summarizeTestCount();
 	fixtureTearDown();
