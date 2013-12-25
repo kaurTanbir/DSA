@@ -72,6 +72,14 @@ int remove(ArrayList* list, int index){
     list->length--;
     return 1;
 }
+int searchIndex(ArrayList *list, void *searchElement, compare cmpFun){
+    int i;
+    for(i = 0;i < list->length;i++){
+        if(0 == cmpFun(searchElement,list->base[i]))
+            return i;
+    }
+    return -1;
+}
 int hasNext(Iterator* it){
     ArrayList *list = it->list;
     if(list->length <= it->position) return 0;
@@ -92,6 +100,13 @@ Iterator getIterator(ArrayList* list){
     it.next = &getNextData;
     return it;
 }
+void iterate(ArrayList list, ForEach* forEach){
+        int result,index;
+        for(index = 0;index < list.length ;index++){
+                forEach(list.base[index]);
+        }
+}
+
 void dispose(ArrayList *list) {
 	free(list->base);
 }

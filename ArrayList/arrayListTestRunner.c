@@ -99,9 +99,19 @@ int main(){
 		test_remove_element_from_empty_list();
 	tearDown();
 	testEnded();
-	testStarted("test_deletes_and_shifts_elements_left");
+	testStarted("test_removes_and_shifts_elements_left");
 	setup();
-		test_deletes_and_shifts_elements_left();
+		test_removes_and_shifts_elements_left();
+	tearDown();
+	testEnded();
+	testStarted("test_should_get_index_of_search_element");
+	setup();
+		test_should_get_index_of_search_element();
+	tearDown();
+	testEnded();
+	testStarted("test_should_get_minus_1_if_element_not_found");
+	setup();
+		test_should_get_minus_1_if_element_not_found();
 	tearDown();
 	testEnded();
 	testStarted("test_iterator_tells_that_next_data_is_present");
@@ -117,6 +127,11 @@ int main(){
 	testStarted("test_iterator_gives_the_data_of_next_index");
 	setup();
 		test_iterator_gives_the_data_of_next_index();
+	tearDown();
+	testEnded();
+	testStarted("test_prints_data_of_each_element");
+	setup();
+		test_prints_data_of_each_element();
 	tearDown();
 	testEnded();
 

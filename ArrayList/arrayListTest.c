@@ -101,7 +101,7 @@ void test_remove_element_from_empty_list(){
 	ASSERT(FAILURE == result);
 }
 
-void test_deletes_and_shifts_elements_left(){
+void test_removes_and_shifts_elements_left(){
     int result;
     insert(internsPtr, 0, &prateek);
     insert(internsPtr, 1, &ji);
@@ -110,7 +110,20 @@ void test_deletes_and_shifts_elements_left(){
     ASSERT(NULL == get(interns, 1));
     ASSERT(result == SUCCESS);        
 }
-
+int compareInterns(void *intern1,void *intern2){
+    Intern in1 = *(Intern*)intern1;
+    Intern in2 = *(Intern*)intern2;
+    return (in1.id - in2.id);
+}
+void test_should_get_index_of_search_element() {
+    insert(internsPtr, 0, &prateek);
+    insert(internsPtr, 1, &ji);
+    ASSERT(0 == searchIndex(internsPtr, &prateek, compareInterns));
+}
+void test_should_get_minus_1_if_element_not_found() {
+    insert(internsPtr, 0, &prateek);
+    ASSERT(-1 == searchIndex(internsPtr, &ji, compareInterns));
+}
 void test_iterator_tells_that_next_data_is_present(){
     Iterator it;
     insert(internsPtr, 0, &prateek);
@@ -132,4 +145,15 @@ void test_iterator_gives_the_data_of_next_index(){
     ASSERT(&ji == it.next(&it));
     ASSERT(&prateek == it.next(&it));
     ASSERT(NULL == it.next(&it));
+}
+
+void printId(void* data){
+        Intern intern = *(Intern*)data;
+        printf("%d\n", intern.id);
+}
+
+void test_prints_data_of_each_element(){
+        add(internsPtr, &prateek);
+        add(internsPtr, &ji);
+        iterate(interns, printId);
 }
