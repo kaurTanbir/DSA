@@ -1,0 +1,23 @@
+[main] treeTestRunner 1000 (0) exception: trapped!
+[main] treeTestRunner 1000 (0) exception: code 0xC0000005 at 0x244FDCC
+[main] treeTestRunner 1000 (0) exception: ax 0xA032090 bx 0x244FDBC cx 0x61061108 dx 0x244FDBC
+[main] treeTestRunner 1000 (0) exception: si 0x0 di 0x0 bp 0x244FD18 sp 0x244FCE4
+[main] treeTestRunner 1000 (0) exception: exception is: STATUS_ACCESS_VIOLATION
+[main] treeTestRunner 1000 (0) stack: Stack trace:
+[main] treeTestRunner 1000 (0) stack: frame 0: sp = 0x244F884, pc = 0x6100A2C3
+[main] treeTestRunner 1000 (0) stack: frame 1: sp = 0x244F8C0, pc = 0x77B2B499
+[main] treeTestRunner 1000 (0) stack: frame 2: sp = 0x244F8E4, pc = 0x77B2B46B
+[main] treeTestRunner 1000 (0) stack: frame 3: sp = 0x244F994, pc = 0x77AE0133
+[main] treeTestRunner 1000 (0) stack: frame 4: sp = 0x244FD18, pc = 0x40271F
+[main] treeTestRunner 1000 (0) stack: frame 5: sp = 0x244FD50, pc = 0x402678
+[main] treeTestRunner 1000 (0) stack: frame 6: sp = 0x244FD78, pc = 0x4028AB
+[main] treeTestRunner 1000 (0) stack: frame 7: sp = 0x244FD9C, pc = 0x4024EA
+[main] treeTestRunner 1000 (0) stack: frame 8: sp = 0x244FDD0, pc = 0x40163C
+[main] treeTestRunner 1000 (0) stack: frame 9: sp = 0x244FDD8, pc = 0x61004402
+[main] treeTestRunner 1000 (0) stack: frame 10: sp = 0x244FF50, pc = 0x61004420
+[main] treeTestRunner 1000 (0) stack: frame 11: sp = 0x244FF5C, pc = 0x402F9E
+[main] treeTestRunner 1000 (0) stack: frame 12: sp = 0x244FF6C, pc = 0x40103A
+[main] treeTestRunner 1000 (0) stack: frame 13: sp = 0x244FF88, pc = 0x75C8336A
+[main] treeTestRunner 1000 (0) stack: frame 14: sp = 0x244FF94, pc = 0x77B09F72
+[main] treeTestRunner 1000 (0) stack: frame 15: sp = 0x244FFD4, pc = 0x77B09F45
+[main] treeTestRunner 1000 (0) stack: End of stack trace (more stack frames may be present)

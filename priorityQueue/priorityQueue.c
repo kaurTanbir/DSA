@@ -1,11 +1,22 @@
+#include "./include/circular_queue.h"
 #include "priorityQueue.h"
 #include <memory.h>
 #include <stdlib.h>
 
-int Penqueue(Queue* queue, data_specification* element){
+PriorityQueue* createPQ(int elementSize,int length){
+    Queue* queue;
+    PriorityQueue* pqueue;
+    queue = create(elementSize, length);
+    pqueue->elements = queue;
+    return pqueue; 
+}
+
+
+int Penqueue(PriorityQueue* Pqueue, data_specification* element){
     int j;
+    Queue *queue = (Queue*)Pqueue->elements;
     data_specification* elementToCompare;
-        data_specification* res;
+    data_specification* res;
 
     if(queueIsFull(queue))
         return 0;
@@ -28,3 +39,8 @@ int Penqueue(Queue* queue, data_specification* element){
     memmove(queue->base+((j+1)*queue->elementSize), element, queue->elementSize);
     return 1;    
 }
+void* dequeuePQ(PriorityQueue* Pqueue){
+    Queue *queue = (Queue*)Pqueue->elements;
+    return dequeue(queue);
+}
+ 

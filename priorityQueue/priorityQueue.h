@@ -1,4 +1,9 @@
-#include "./include/circular_queue.h"
 #include "./include/custom_dataType.h"
 
-int Penqueue(Queue* queue, data_specification* element);
+typedef struct {
+	void* elements;
+} PriorityQueue;
+
+PriorityQueue* createPQ(int elementSize,int length);
+int Penqueue(PriorityQueue* queue, data_specification* element);
+void* dequeuePQ(PriorityQueue* queue);

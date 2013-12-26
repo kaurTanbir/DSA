@@ -54,16 +54,6 @@ int main(){
 		test_inserts_an_Integer_element_in_queue();
 	tearDown();
 	testEnded();
-	testStarted("test_inserts_an_Integer_element_inbetween_queue");
-	setup();
-		test_inserts_an_Integer_element_inbetween_queue();
-	tearDown();
-	testEnded();
-	testStarted("test_inserts_an_Integer_element_at_begining_of_queue");
-	setup();
-		test_inserts_an_Integer_element_at_begining_of_queue();
-	tearDown();
-	testEnded();
 	testStarted("test_returns_1_when_successfully_entered_inqueue");
 	setup();
 		test_returns_1_when_successfully_entered_inqueue();
@@ -86,6 +76,8 @@ int main(){
 }
 
 void setup(){}
+
+void tearDown(){}
 
 void fixtureSetup(){}
 
