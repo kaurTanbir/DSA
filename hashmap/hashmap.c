@@ -66,5 +66,12 @@ Matched_Data doesKeyMatch(HashMap map, void* key){
 
 void* get(HashMap map , void* key){
     Matched_Data matched_element = doesKeyMatch(map, key);
+    if(matched_element.data == NULL)
+    	return NULL; 
     return matched_element.data;
 }
+// int HashMap_remove(HashMap* hash, void* key){
+//     Matched_Data elementFound = doesKeyMatch(*hash, key);
+//     DList *list = getSlotList(*hash, key);
+//     return delete_node(list, elementFound.index);
+// };

@@ -1,11 +1,11 @@
 #include "linkList.h"
 #include <stdlib.h>
 DList* create(){
-        DList* list;
-        list = (DList*)malloc(sizeof(DList));
-        list->head = NULL;
-        list->length = 0;
-        return list;
+    DList* list;
+    list = (DList*)malloc(sizeof(DList));
+    list->head = NULL;
+    list->length = 0;
+    return list;
 };
 
 Node* createNode(Node *prevAddress, Node *nextAddress){

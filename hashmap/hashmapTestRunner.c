@@ -64,6 +64,11 @@ int main(){
 		test_add_an_element_to_hashmap_and_get_it();
 	tearDown();
 	testEnded();
+	testStarted("test_gives_NULL_when_key_is_not_present");
+	setup();
+		test_gives_NULL_when_key_is_not_present();
+	tearDown();
+	testEnded();
 
 	summarizeTestCount();
 	fixtureTearDown();
