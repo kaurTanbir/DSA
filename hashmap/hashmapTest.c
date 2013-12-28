@@ -51,9 +51,8 @@ void test_deletes_the_value_matched_to_given_key(){
     ASSERT(NULL == get(map, &ji.key));        
 }
 
-// void test_deletion_failed_when_key_is_not_present(){
-//         int key1 = 15;
-//         HashMap hash = createHash(getKeyAsCode, areInternsKeyEqual);
-//         ASSERT(0 == HashMap_remove(&hash, &key1));
-//         ASSERT(NULL == HashMap_getData(hash, &key1));        
-// }
+void test_deletion_failed_when_key_is_not_present(){
+    HashMap map = createMap(hashGenerator, areKeysEqual);
+    ASSERT(0 == remove(&map, &tanbirka.key));
+    ASSERT(NULL == get(map, &tanbirka.key));        
+}
