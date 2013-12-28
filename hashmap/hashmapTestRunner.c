@@ -54,6 +54,16 @@ int main(){
 		test_add_an_element_to_hashmap();
 	tearDown();
 	testEnded();
+	testStarted("test_add_second_element_to_hashmap_in_same_bucket");
+	setup();
+		test_add_second_element_to_hashmap_in_same_bucket();
+	tearDown();
+	testEnded();
+	testStarted("test_add_an_element_to_hashmap_and_get_it");
+	setup();
+		test_add_an_element_to_hashmap_and_get_it();
+	tearDown();
+	testEnded();
 
 	summarizeTestCount();
 	fixtureTearDown();

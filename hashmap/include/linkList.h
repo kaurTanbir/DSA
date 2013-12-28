@@ -1,13 +1,13 @@
 #include "./iterator.h"
 typedef struct node{
-        struct node* next;
-        struct node* prev;
-        void* data;
+    struct node* next;
+    struct node* prev;
+    void* data;
 }Node;
 
 typedef struct list{
-        Node* head;
-        int length;
+    Node* head;
+    int length;
 }DList;
 
 DList* create();

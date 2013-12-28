@@ -5,8 +5,9 @@ typedef int (*hash)(void *key);
 typedef struct {
     void **bucket;
     hash hashGenerator;
-    compare cmp;
+    compare compareKeys;
 } HashMap;
 
 HashMap createMap(hash hashGenerator, compare compareKey);
 int put(HashMap* map, void* key, void* value);
+void* get(HashMap* map, void* key);
