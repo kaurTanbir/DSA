@@ -10,4 +10,3 @@ typedef struct {
 
 HashMap createMap(hash hashGenerator, compare compareKey);
 int put(HashMap* map, void* key, void* value);
-//void* get(HashMap* map, void* key);
