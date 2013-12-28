@@ -36,5 +36,5 @@ void test_add_second_element_to_hashmap_in_same_bucket(){
 void test_add_an_element_to_hashmap_and_get_it(){
     HashMap map = createMap(hashGenerator, areKeysEqual);
     ASSERT(put(&map, &tanbirka.key, &tanbirka.value));
-    ASSERT(0 == strcmp((char*)get(&map, &tanbirka.key),tanbirka.value));
+    ASSERT(0 == strcmp((char*)get(map, &tanbirka.key),tanbirka.value));
 }

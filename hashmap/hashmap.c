@@ -64,7 +64,7 @@ Matched_Data doesKeyMatch(HashMap map, void* key){
     return result;
 }
 
-void* get(HashMap* map , void* key){
-    Matched_Data matched_element = doesKeyMatch(*map, key);
+void* get(HashMap map , void* key){
+    Matched_Data matched_element = doesKeyMatch(map, key);
     return matched_element.data;
 }
