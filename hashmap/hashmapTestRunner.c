@@ -69,6 +69,11 @@ int main(){
 		test_gives_NULL_when_key_is_not_present();
 	tearDown();
 	testEnded();
+	testStarted("test_deletes_the_value_matched_to_given_key");
+	setup();
+		test_deletes_the_value_matched_to_given_key();
+	tearDown();
+	testEnded();
 
 	summarizeTestCount();
 	fixtureTearDown();

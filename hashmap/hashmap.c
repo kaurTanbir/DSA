@@ -70,8 +70,8 @@ void* get(HashMap map , void* key){
     	return NULL; 
     return matched_element.data;
 }
-// int HashMap_remove(HashMap* hash, void* key){
-//     Matched_Data elementFound = doesKeyMatch(*hash, key);
-//     DList *list = getSlotList(*hash, key);
-//     return delete_node(list, elementFound.index);
-// };
+int remove(HashMap* map, void* key){
+    Matched_Data elementFound = doesKeyMatch(*map, key);
+	DList *list = getBucket(map, key);
+    return deleteNode(list, elementFound.index);
+};
