@@ -1,6 +1,7 @@
 #include "b_sort.h"
 #include <stdlib.h>
 #include <memory.h>
+
 void swapElement(void* element1 ,void* element2 ,int elementSize ,Compare compare){
     void* temp = calloc(1, elementSize);
         if(0 < compare(element1,element2)){
