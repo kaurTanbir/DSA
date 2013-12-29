@@ -75,3 +75,7 @@ int remove(HashMap* map, void* key){
 	DList *list = getBucket(map, key);
     return deleteNode(list, elementFound.index);
 };
+Iterator getAllKeys(HashMap map){
+    Iterator it;
+    return it;
+}

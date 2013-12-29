@@ -55,7 +55,7 @@ void test_deletion_failed_when_key_is_not_present(){
     ASSERT(0 == remove(&map, &tanbirka.key));
     ASSERT(NULL == get(map, &tanbirka.key));        
 }
-void test_updates_the_value_of_key_if_is_already_present(){
+void test_updates_the_value_of_key_if_already_present(){
     Intern tannu ={15440,"tannu"};
     Iterator it;
     HashMap map = createMap(hashGenerator, areKeysEqual);
@@ -64,4 +64,6 @@ void test_updates_the_value_of_key_if_is_already_present(){
     put(&map, &tannu.key, &tannu);
     ASSERT(&tannu == get(map, &ji.key));
 }
+
+
 
