@@ -7,18 +7,18 @@ typedef struct {
 typedef int (*compare)(void* element1,void *element2);
 typedef void ForEach(void* data);
 
-ArrayList create(int capacity);
+ArrayList createArrayList(int capacity);
 
 int insert(ArrayList *list, int index, void* data);
 int add(ArrayList *list, void* data);
 
-void* get(ArrayList list, int index);
+void* getArrayListData(ArrayList list, int index);
 
 int searchIndex(ArrayList *list, void *searchElement, compare cmpFun);
 
-int remove(ArrayList* list, int index);
+int removeArrayListData(ArrayList* list, int index);
 
-Iterator getIterator(ArrayList* list);
+Iterator getIteratorForArraylist(ArrayList* list);
 void iterate(ArrayList list, ForEach* forEach);
 
 void dispose(ArrayList *list);

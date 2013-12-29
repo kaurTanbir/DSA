@@ -4,7 +4,7 @@ typedef int (*compare)(void* firstElement, void* secondElement);
 typedef int (*hash)(void *key);
 typedef struct {
     void **bucket;
-    void* keyList;
+    void* capacity;
     hash hashGenerator;
     compare compareKeys;
 } HashMap;
