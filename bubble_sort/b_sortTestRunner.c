@@ -64,6 +64,11 @@ int main(){
 		test_sort_character_array();
 	tearDown();
 	testEnded();
+	testStarted("test_sort_string_array");
+	setup();
+		test_sort_string_array();
+	tearDown();
+	testEnded();
 
 	summarizeTestCount();
 	fixtureTearDown();
