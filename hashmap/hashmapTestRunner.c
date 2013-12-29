@@ -69,6 +69,11 @@ int main(){
 		test_add_gives_NULL_when_key_is_null();
 	tearDown();
 	testEnded();
+	testStarted("test_add_updates_the_value_of_key_if_already_present");
+	setup();
+		test_add_updates_the_value_of_key_if_already_present();
+	tearDown();
+	testEnded();
 	testStarted("test_get_an_element_from_hashMap");
 	setup();
 		test_get_an_element_from_hashMap();
@@ -99,9 +104,19 @@ int main(){
 		test_deletion_failed_when_key_is_not_present();
 	tearDown();
 	testEnded();
-	testStarted("test_updates_the_value_of_key_if_already_present");
+	testStarted("test_deleting_element_which_is_not_present");
 	setup();
-		test_updates_the_value_of_key_if_already_present();
+		test_deleting_element_which_is_not_present();
+	tearDown();
+	testEnded();
+	testStarted("test_deleting_when_key_is_null_gives_NULL");
+	setup();
+		test_deleting_when_key_is_null_gives_NULL();
+	tearDown();
+	testEnded();
+	testStarted("test_deleting_when_map_is_null_gives_NULL");
+	setup();
+		test_deleting_when_map_is_null_gives_NULL();
 	tearDown();
 	testEnded();
 

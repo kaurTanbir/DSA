@@ -43,6 +43,15 @@ void test_add_gives_NULL_when_key_is_null(){
         ASSERT(0 == put(&map,NULL,&tanbirka));        
 };
 
+void test_add_updates_the_value_of_key_if_already_present(){
+    Intern tannu ={15440,"tannu"};
+    Iterator it;
+    HashMap map = createMap(hashGenerator, areKeysEqual,10);
+    put(&map, &ji.key, &ji);
+    ASSERT(&ji == get(&map, &ji.key));
+    put(&map, &tannu.key, &tannu);
+    ASSERT(&tannu == get(&map, &ji.key));
+}
 void test_get_an_element_from_hashMap(){
     HashMap map = createMap(hashGenerator, areKeysEqual,10);
     ASSERT(put(&map, &tanbirka.key, &tanbirka.value));
@@ -72,15 +81,20 @@ void test_deletion_failed_when_key_is_not_present(){
     ASSERT(0 == remove(&map, &tanbirka.key));
     ASSERT(NULL == get(&map, &tanbirka.key));        
 }
-void test_updates_the_value_of_key_if_already_present(){
-    Intern tannu ={15440,"tannu"};
-    Iterator it;
+void test_deleting_element_which_is_not_present(){
     HashMap map = createMap(hashGenerator, areKeysEqual,10);
-    put(&map, &ji.key, &ji);
-    ASSERT(&ji == get(&map, &ji.key));
-    put(&map, &tannu.key, &tannu);
-    ASSERT(&tannu == get(&map, &ji.key));
+    ASSERT(0 == remove(&map,&tanbirka));
+};
+
+void test_deleting_when_key_is_null_gives_NULL(){
+    HashMap map = createMap(hashGenerator, areKeysEqual,10);
+    ASSERT(0 == remove(&map,NULL));
+
+};
+void test_deleting_when_map_is_null_gives_NULL(){
+    ASSERT(0 == remove(NULL,NULL));
 }
+
 
 
 
