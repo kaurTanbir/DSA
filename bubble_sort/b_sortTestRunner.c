@@ -54,6 +54,11 @@ int main(){
 		test_sort_Int_array();
 	tearDown();
 	testEnded();
+	testStarted("test_sort_double_array");
+	setup();
+		test_sort_double_array();
+	tearDown();
+	testEnded();
 
 	summarizeTestCount();
 	fixtureTearDown();
