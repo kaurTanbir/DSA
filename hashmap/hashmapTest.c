@@ -50,9 +50,18 @@ void test_deletes_the_value_matched_to_given_key(){
     ASSERT(remove(&map, &ji.key));
     ASSERT(NULL == get(map, &ji.key));        
 }
-
 void test_deletion_failed_when_key_is_not_present(){
     HashMap map = createMap(hashGenerator, areKeysEqual);
     ASSERT(0 == remove(&map, &tanbirka.key));
     ASSERT(NULL == get(map, &tanbirka.key));        
 }
+void test_updates_the_value_of_key_if_is_already_present(){
+    Intern tannu ={15440,"tannu"};
+    Iterator it;
+    HashMap map = createMap(hashGenerator, areKeysEqual);
+    put(&map, &ji.key, &ji);
+    ASSERT(&ji == get(map, &ji.key));
+    put(&map, &tannu.key, &tannu);
+    ASSERT(&tannu == get(map, &ji.key));
+}
+

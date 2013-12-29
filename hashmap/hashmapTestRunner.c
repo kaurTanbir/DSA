@@ -74,6 +74,16 @@ int main(){
 		test_deletes_the_value_matched_to_given_key();
 	tearDown();
 	testEnded();
+	testStarted("test_deletion_failed_when_key_is_not_present");
+	setup();
+		test_deletion_failed_when_key_is_not_present();
+	tearDown();
+	testEnded();
+	testStarted("test_updates_the_value_of_key_if_is_already_present");
+	setup();
+		test_updates_the_value_of_key_if_is_already_present();
+	tearDown();
+	testEnded();
 
 	summarizeTestCount();
 	fixtureTearDown();
