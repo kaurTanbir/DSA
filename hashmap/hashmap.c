@@ -78,8 +78,10 @@ Matched_Data doesKeyMatch(HashMap map, void* key){
     return result;
 }
 
-void* get(HashMap map , void* key){
-    Matched_Data matched_element = doesKeyMatch(map, key);
+void* get(HashMap *map , void* key){
+    Matched_Data matched_element;
+    if(map == NULL || key == NULL) return NULL;
+    matched_element = doesKeyMatch(*map, key);
     if(matched_element.data == NULL)
     	return NULL; 
     return matched_element.data;

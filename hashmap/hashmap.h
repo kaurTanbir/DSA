@@ -11,5 +11,5 @@ typedef struct {
 
 HashMap createMap(hash hashGenerator, compare compareKey,int capacity);
 int put(HashMap* map, void* key, void* value);
-void* get(HashMap map, void* key);
+void* get(HashMap *map, void* key);
 int remove(HashMap* map,void* data);

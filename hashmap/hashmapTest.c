@@ -34,44 +34,52 @@ void test_add_second_element_to_hashmap_in_same_bucket(){
     ASSERT(1 == res);
 }
 
-void test_adding_when_hash_map_is_null_should_fail(){
+void test_add_gives_NULL_when_hash_map_is_null(){
         ASSERT(0 == put(NULL,&ji.key,&ji));
 };
 
-void test_adding_when_key_is_null_should_fail(){
+void test_add_gives_NULL_when_key_is_null(){
         HashMap map = createMap(hashGenerator,areKeysEqual,10);
         ASSERT(0 == put(&map,NULL,&tanbirka));        
 };
+
 void test_get_an_element_from_hashMap(){
     HashMap map = createMap(hashGenerator, areKeysEqual,10);
     ASSERT(put(&map, &tanbirka.key, &tanbirka.value));
-    ASSERT(0 == strcmp((char*)get(map, &tanbirka.key),tanbirka.value));
+    ASSERT(0 == strcmp((char*)get(&map, &tanbirka.key),tanbirka.value));
 }
 
 void test_get_gives_NULL_when_key_is_not_present(){
     HashMap map = createMap(hashGenerator, areKeysEqual,10);
-    ASSERT(NULL == get(map, &ji.key));
+    ASSERT(NULL == get(&map, &ji.key));
 }
+void test_get_gives_NULL_when_map_is_null(){
+    ASSERT(NULL == get(NULL,&tanbirka.key));
 
+};
+void test_get_gives_NULL_when_key_is_null(){
+    HashMap map = createMap(hashGenerator, areKeysEqual,10);
+    ASSERT(NULL == get(&map,NULL));
+};
 void test_deletes_the_value_matched_to_given_key(){
     HashMap map = createMap(hashGenerator, areKeysEqual,10);
     ASSERT(put(&map,&ji.key , &ji));
     ASSERT(remove(&map, &ji.key));
-    ASSERT(NULL == get(map, &ji.key));        
+    ASSERT(NULL == get(&map, &ji.key));        
 }
 void test_deletion_failed_when_key_is_not_present(){
     HashMap map = createMap(hashGenerator, areKeysEqual,10);
     ASSERT(0 == remove(&map, &tanbirka.key));
-    ASSERT(NULL == get(map, &tanbirka.key));        
+    ASSERT(NULL == get(&map, &tanbirka.key));        
 }
 void test_updates_the_value_of_key_if_already_present(){
     Intern tannu ={15440,"tannu"};
     Iterator it;
     HashMap map = createMap(hashGenerator, areKeysEqual,10);
     put(&map, &ji.key, &ji);
-    ASSERT(&ji == get(map, &ji.key));
+    ASSERT(&ji == get(&map, &ji.key));
     put(&map, &tannu.key, &tannu);
-    ASSERT(&tannu == get(map, &ji.key));
+    ASSERT(&tannu == get(&map, &ji.key));
 }
 
 
