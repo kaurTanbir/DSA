@@ -1,5 +1,4 @@
 #include "include/linkList.h"
-//#include "../ArrayList/arrayList.h"
 #include "hashmap.h"
 #include <stdlib.h>
 
@@ -12,15 +11,27 @@ typedef struct {
     void* data;
     int index;
 }Matched_Data;
-
-HashMap createMap(hash hashGenerator, compare compareKey){
+// HashMap map;
+//         int i;
+//         List *listOfHashObjects;
+//         ArrayList listOfBuckets = createArrayList(capacity);
+//         map.getHashCode = getHashCode;
+//         map.compare = cmp;
+//         map.capacity = capacity;
+//         map.buckets = calloc(1,sizeof(ArrayList));
+//         *(ArrayList*)map.buckets = listOfBuckets;
+//         for(i=0;i<capacity;i++)
+//                 addInArrayList(map.buckets, create());
+//         return map;
+HashMap createMap(hash hashGenerator, compare compareKey, int capacity){
 	HashMap map;
 	int i;
-	map.bucket = malloc(sizeof(DList) * 10);
-	for(i = 0;i<10 ;i++)
+	map.bucket = malloc(sizeof(DList) * capacity);
+	for(i = 0; i < capacity ;i++)
 		map.bucket[i] = create();
 	map.hashGenerator = hashGenerator;
 	map.compareKeys = compareKey;
+    map.capacity = capacity;
     return map;
 }
 
@@ -42,7 +53,9 @@ DList* getBucket(HashMap* map, void* key){
 
 int put(HashMap* map, void* key, void* value){
 	HashData* data;
-	DList *list = getBucket(map, key);
+	DList *list;
+    if(map == NULL || key == NULL) return 0;
+    list = getBucket(map, key);
     data = createdata(key, value);
     insertNode(list, data, list->length);
     return 1;
@@ -72,11 +85,11 @@ void* get(HashMap map , void* key){
     return matched_element.data;
 }
 int remove(HashMap* map, void* key){
-    Matched_Data elementFound = doesKeyMatch(*map, key);
-	DList *list = getBucket(map, key);
+    Matched_Data elementFound ;
+    DList *list;
+    if(key == NULL || map == NULL) return 0;
+    elementFound = doesKeyMatch(*map, key);
+	list = getBucket(map, key);
     return deleteNode(list, elementFound.index);
 };
-Iterator getAllKeys(HashMap map){
-    Iterator it;
-    return it;
-}
+
