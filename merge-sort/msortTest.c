@@ -11,10 +11,17 @@ int areArrayEqual(void** a,void** b, int length){
     }
     return 1;
 }
-
+typedef struct {
+	int Acc_no;
+	double balance;
+} Account;
 //--------------------------------------------------------------------------------------
 
-
+int compareAccounts(void* first, void* second) {
+    Account* firstAccount = (Account*)first;
+    Account* secondAccount = (Account*)second;
+    return firstAccount->Acc_no - secondAccount->Acc_no;
+}
 
 int compareIntegers ( void* a,  void* b){
     return (*(int*)a - *(int*)b);
@@ -24,7 +31,13 @@ int compareDoubles( void* a,  void* b){
     return (*(double*)a - *(double*)b);
 }
 
+int compareCharacters( void* a,  void* b){
+    return (*(char*)a - *(char*)b);
+}
 
+int compareStrings( void* a,  void* b){
+    return strcmp((char*)a,(char*)b);
+}
 
 //------------------------------------------------------------------------------------------
 
@@ -40,5 +53,12 @@ void test_sorts_array_of_doubles(){
     void* arrayToSort[5] = {&nums[4],&nums[3],&nums[2],&nums[1],&nums[0]};
     void* expected[5] = {&nums[0],&nums[1],&nums[2],&nums[3],&nums[4]};
     sort(arrayToSort, 5, compareIntegers);
+    ASSERT(areArrayEqual(arrayToSort, expected, 5));
+}
+void test_sorts_array_of_Characters(){
+    char chars[5] = {'a','b','c','d','e'};
+    void* arrayToSort[5] = {(chars+3),(chars+1),(chars+4),(chars+2),(chars)};
+    void* expected[5] = {(chars+0),(chars+1),(chars+2),(chars+3),(chars+4)};
+    sort(arrayToSort, 5, compareCharacters);
     ASSERT(areArrayEqual(arrayToSort, expected, 5));
 }

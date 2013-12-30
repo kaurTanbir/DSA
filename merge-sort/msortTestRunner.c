@@ -59,6 +59,11 @@ int main(){
 		test_sorts_array_of_doubles();
 	tearDown();
 	testEnded();
+	testStarted("test_sorts_array_of_Characters");
+	setup();
+		test_sorts_array_of_Characters();
+	tearDown();
+	testEnded();
 
 	summarizeTestCount();
 	fixtureTearDown();
