@@ -106,4 +106,9 @@ void test_iterating_over_hash_map(){
     ASSERT(NULL == it.next(&it));
 };
 
-
+void test_iterating_when_no_more_elements_are_present(){
+    HashMap map = createMap(hashGenerator,areKeysEqual,10);
+    Iterator it;
+    it = getAllKeys(map);
+    ASSERT(NULL == it.next(&it));
+};

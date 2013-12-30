@@ -124,6 +124,11 @@ int main(){
 		test_iterating_over_hash_map();
 	tearDown();
 	testEnded();
+	testStarted("test_iterating_when_no_more_elements_are_present");
+	setup();
+		test_iterating_when_no_more_elements_are_present();
+	tearDown();
+	testEnded();
 
 	summarizeTestCount();
 	fixtureTearDown();

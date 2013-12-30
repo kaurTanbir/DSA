@@ -106,3 +106,4 @@ Iterator getAllKeys(HashMap map){
     it.next = getNextKey;
     return it;
 };
+
