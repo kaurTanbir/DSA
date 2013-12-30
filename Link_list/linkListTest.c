@@ -6,7 +6,7 @@
 DList* list;
 
 void tearDown(){
-        free(list);
+    dispose(list);
 }
 void test_gives_an_Doubly_link_list_with_head_NULL(){
         list = create();

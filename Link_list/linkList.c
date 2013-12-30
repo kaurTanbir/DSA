@@ -123,4 +123,12 @@ Iterator getIterator(DList *dList){
     listIterator.next = &nextForList;
     return listIterator;
 }
-
+void dispose(DList *dList){
+    Node *temp;
+    if(!dList || dList->head == NULL)
+        return;
+    temp = dList->head;
+    dList->head = temp->next;
+    free(temp);
+    dispose(dList);
+}
