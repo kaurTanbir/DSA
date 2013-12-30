@@ -14,14 +14,18 @@ void merge(void **destination,  void** leftArr, void** rightArr, int leftLength,
         }
         k++;
     }
-    while(i < leftLength){
+    // while(i < leftLength){
+    //     destination[k] = leftArr[i];
+    //     i++;k++;
+    // }
+    // while(j < rightLength){
+    //     destination[k] = rightArr[i];
+    //     j++;k++;
+    // }
+    for(;j < rightLength; j++,k++)
+        destination[k] = rightArr[j];
+    for(;i < leftLength;i++,k++)
         destination[k] = leftArr[i];
-        i++;k++;
-    }
-    while(j < rightLength){
-        destination[k] = rightArr[i];
-        j++;k++;
-    }
 }
 
 void sort(void** base, int noOfElements, Compare* comparator){
