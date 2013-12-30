@@ -106,4 +106,12 @@ Iterator getAllKeys(HashMap map){
     it.next = getNextKey;
     return it;
 };
-
+void disposeMap(HashMap *map){
+    int i;
+    DList *listOfHashObjects;
+    for(i=0;i<map->capacity;i++){
+        listOfHashObjects = (DList*)map->bucket[i];
+        dispose(listOfHashObjects);
+    };
+    free(map->bucket);
+};
