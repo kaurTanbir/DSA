@@ -54,6 +54,11 @@ int main(){
 		test_sorts_array_of_Integers_odd_();
 	tearDown();
 	testEnded();
+	testStarted("test_sorts_array_of_Integers_even_");
+	setup();
+		test_sorts_array_of_Integers_even_();
+	tearDown();
+	testEnded();
 	testStarted("test_sorts_array_of_doubles");
 	setup();
 		test_sorts_array_of_doubles();

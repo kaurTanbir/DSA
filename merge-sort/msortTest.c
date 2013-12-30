@@ -48,6 +48,14 @@ void test_sorts_array_of_Integers_odd_(){
     sort(arrayToSort, 5, compareIntegers);
     ASSERT(areArrayEqual(arrayToSort, expected, 5));
 }
+void test_sorts_array_of_Integers_even_(){
+    int nums[4] = {1,2,3,4};
+    void* arrayToSort[4] = {&nums[3],&nums[2],&nums[1],&nums[0]};
+    void* expected[4] = {&nums[0],&nums[1],&nums[2],&nums[3]};
+    sort(arrayToSort, 4, compareIntegers);
+    ASSERT(areArrayEqual(arrayToSort, expected, 4));
+}
+
 
 void test_sorts_array_of_doubles(){
     double nums[5] = {1.0,2.0,3.0,4.0,5.0};
