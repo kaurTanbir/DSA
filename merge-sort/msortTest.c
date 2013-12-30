@@ -7,7 +7,7 @@ int areArrayEqual(void** a,void** b, int length){
     int i;
     for(i = 0;i<length;i++){
         if(a[i] != b[i])
-            return 0;
+           return 0;
     }
     return 1;
 }
@@ -41,13 +41,14 @@ int compareStrings( void* a,  void* b){
 
 //------------------------------------------------------------------------------------------
 
-void test_sorts_array_of_Integers(){
+void test_sorts_array_of_Integers_odd_(){
     int nums[5] = {1,2,3,4,5};
     void* arrayToSort[5] = {&nums[4],&nums[3],&nums[2],&nums[1],&nums[0]};
     void* expected[5] = {&nums[0],&nums[1],&nums[2],&nums[3],&nums[4]};
     sort(arrayToSort, 5, compareIntegers);
     ASSERT(areArrayEqual(arrayToSort, expected, 5));
 }
+
 void test_sorts_array_of_doubles(){
     double nums[5] = {1.0,2.0,3.0,4.0,5.0};
     void* arrayToSort[5] = {&nums[4],&nums[3],&nums[2],&nums[1],&nums[0]};
@@ -62,3 +63,12 @@ void test_sorts_array_of_Characters(){
     sort(arrayToSort, 5, compareCharacters);
     ASSERT(areArrayEqual(arrayToSort, expected, 5));
 }
+void test_sorts_array_of_String(){
+    String names[5] = {"aaaa","bbbb","cccc","dddd","eeee"};
+    void* arrayToSort[5] = {(names+3),(names+1),(names+4),(names+2),(names)};
+    void* expected[5] = {(names+0),(names+1),(names+2),(names+3),(names+4)};
+    sort(arrayToSort, 5, compareStrings);
+    ASSERT(areArrayEqual(arrayToSort, expected, 5));
+}
+
+

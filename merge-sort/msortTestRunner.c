@@ -49,9 +49,9 @@ int main(){
 	fixtureSetup();
 	resetTestCount();
 
-	testStarted("test_sorts_array_of_Integers");
+	testStarted("test_sorts_array_of_Integers_odd_");
 	setup();
-		test_sorts_array_of_Integers();
+		test_sorts_array_of_Integers_odd_();
 	tearDown();
 	testEnded();
 	testStarted("test_sorts_array_of_doubles");
@@ -62,6 +62,11 @@ int main(){
 	testStarted("test_sorts_array_of_Characters");
 	setup();
 		test_sorts_array_of_Characters();
+	tearDown();
+	testEnded();
+	testStarted("test_sorts_array_of_String");
+	setup();
+		test_sorts_array_of_String();
 	tearDown();
 	testEnded();
 

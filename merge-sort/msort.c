@@ -42,7 +42,6 @@ void sort(void** base, int noOfElements, Compare* comparator){
 
     sort(leftArr, leftLength, comparator);
     sort(rightArr, rightLength, comparator);
-
     merge(base, leftArr, rightArr, leftLength, rightLength, comparator);
 
     free(leftArr);
