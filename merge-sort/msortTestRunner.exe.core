@@ -1,0 +1,23 @@
+[main] msortTestRunner 1000 (0) exception: trapped!
+[main] msortTestRunner 1000 (0) exception: code 0xC0000005 at 0x40147D
+[main] msortTestRunner 1000 (0) exception: ax 0x280C71C0 bx 0x244FD98 cx 0xA031808 dx 0xA0317E8
+[main] msortTestRunner 1000 (0) exception: si 0x1 di 0x244FD5C bp 0x244FC74 sp 0x244FC60
+[main] msortTestRunner 1000 (0) exception: exception is: STATUS_ACCESS_VIOLATION
+[main] msortTestRunner 1000 (0) stack: Stack trace:
+[main] msortTestRunner 1000 (0) stack: frame 0: sp = 0x244F800, pc = 0x6100A2C3
+[main] msortTestRunner 1000 (0) stack: frame 1: sp = 0x244F83C, pc = 0x778EB499
+[main] msortTestRunner 1000 (0) stack: frame 2: sp = 0x244F860, pc = 0x778EB46B
+[main] msortTestRunner 1000 (0) stack: frame 3: sp = 0x244F910, pc = 0x778A0133
+[main] msortTestRunner 1000 (0) stack: frame 4: sp = 0x244FC74, pc = 0x401655
+[main] msortTestRunner 1000 (0) stack: frame 5: sp = 0x244FCBC, pc = 0x401621
+[main] msortTestRunner 1000 (1) stack: frame 6: sp = 0x244FCF8, pc = 0x401369
+[main] msortTestRunner 1000 (0) stack: frame 7: sp = 0x244FDC8, pc = 0x401209
+[main] msortTestRunner 1000 (0) stack: frame 8: sp = 0x244FDD0, pc = 0x61004402
+[main] msortTestRunner 1000 (0) stack: frame 9: sp = 0x244FF50, pc = 0x61004420
+[main] msortTestRunner 1000 (0) stack: frame 10: sp = 0x244FF5C, pc = 0x40179E
+[main] msortTestRunner 1000 (0) stack: frame 11: sp = 0x244FF6C, pc = 0x40103A
+[main] msortTestRunner 1000 (0) stack: frame 12: sp = 0x244FF88, pc = 0x75AB336A
+[main] msortTestRunner 1000 (0) stack: frame 13: sp = 0x244FF94, pc = 0x778C9F72
+[main] msortTestRunner 1000 (0) stack: frame 14: sp = 0x244FFD4, pc = 0x778C9F45
+[main] msortTestRunner 1000 (0) stack: frame 15: sp = 0x244FFEC, pc = 0x0
+[main] msortTestRunner 1000 (0) stack: End of stack trace
