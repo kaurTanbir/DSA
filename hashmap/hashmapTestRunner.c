@@ -119,6 +119,11 @@ int main(){
 		test_deleting_when_map_is_null_gives_NULL();
 	tearDown();
 	testEnded();
+	testStarted("test_iterating_over_hash_map");
+	setup();
+		test_iterating_over_hash_map();
+	tearDown();
+	testEnded();
 
 	summarizeTestCount();
 	fixtureTearDown();

@@ -11,18 +11,7 @@ typedef struct {
     void* data;
     int index;
 }Matched_Data;
-// HashMap map;
-//         int i;
-//         List *listOfHashObjects;
-//         ArrayList listOfBuckets = createArrayList(capacity);
-//         map.getHashCode = getHashCode;
-//         map.compare = cmp;
-//         map.capacity = capacity;
-//         map.buckets = calloc(1,sizeof(ArrayList));
-//         *(ArrayList*)map.buckets = listOfBuckets;
-//         for(i=0;i<capacity;i++)
-//                 addInArrayList(map.buckets, create());
-//         return map;
+
 HashMap createMap(hash hashGenerator, compare compareKey, int capacity){
 	HashMap map;
 	int i;
@@ -95,3 +84,25 @@ int remove(HashMap* map, void* key){
     return deleteNode(list, elementFound.index);
 };
 
+void *getNextKey(Iterator *it){
+    HashData *map;
+    Iterator ListIterator = getIterator(it->list);
+    ListIterator.position = it->position;
+    map = ListIterator.next(&ListIterator);
+    it->position++;
+    if(map) return map->key;
+    return NULL;
+};
+Iterator getAllKeys(HashMap map){
+    int i;
+    Iterator it, listIt;
+    DList *listOfHashData = create();
+    for(i = 0; i < map.capacity; i++){
+        listIt = getIterator((DList*)map.bucket);
+        while(listIt.hasNext(&listIt))
+            insertNode(listOfHashData,listIt.next(&listIt),0);
+    }
+    it = getIterator(listOfHashData);
+    it.next = getNextKey;
+    return it;
+};

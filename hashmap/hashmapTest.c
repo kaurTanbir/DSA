@@ -95,6 +95,15 @@ void test_deleting_when_map_is_null_gives_NULL(){
     ASSERT(0 == remove(NULL,NULL));
 }
 
-
+void test_iterating_over_hash_map(){
+    HashMap map = createMap(hashGenerator,areKeysEqual,10);
+    Iterator it;
+    put(&map,&tanbirka.key,&tanbirka);
+    put(&map,&ji.key,&ji);
+    it = getAllKeys(map);
+    ASSERT(ji.key == *(int*)it.next(&it));
+    ASSERT(tanbirka.key == *(int*)it.next(&it));
+    ASSERT(NULL == it.next(&it));
+};
 
 
