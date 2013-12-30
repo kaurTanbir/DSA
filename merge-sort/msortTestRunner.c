@@ -69,6 +69,11 @@ int main(){
 		test_sorts_array_of_String();
 	tearDown();
 	testEnded();
+	testStarted("test_sorts_Accounts_according_to_account_number");
+	setup();
+		test_sorts_Accounts_according_to_account_number();
+	tearDown();
+	testEnded();
 
 	summarizeTestCount();
 	fixtureTearDown();

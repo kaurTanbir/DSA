@@ -70,5 +70,11 @@ void test_sorts_array_of_String(){
     sort(arrayToSort, 5, compareStrings);
     ASSERT(areArrayEqual(arrayToSort, expected, 5));
 }
-
+void test_sorts_Accounts_according_to_account_number(){
+    Account accounts[] = {{1, 10} , {2,100}, {3, 1000}, {4, 10}, {5, 100}};
+    void* account[5] = {(accounts+3),(accounts+1),(accounts+4),(accounts+2),(accounts)};
+    void* expected[5] = {(accounts+0),(accounts+1),(accounts+2),(accounts+3),(accounts+4)};
+    sort(account, 5, compareAccounts);
+    ASSERT(areArrayEqual(account, expected, 5));
+}
 
