@@ -10,8 +10,8 @@ typedef struct {
 } HashMap;
 
 HashMap createMap(hash hashGenerator, compare compareKey,int capacity);
-int put(HashMap* map, void* key, void* value);
-void* get(HashMap *map, void* key);
-int remove(HashMap* map,void* data);
+int putHashData(HashMap* map, void* key, void* value);
+void* getHashValue(HashMap *map, void* key);
+int removeHashValue(HashMap* map,void* data);
 Iterator getAllKeys(HashMap map);
 void disposeMap(HashMap* map);
