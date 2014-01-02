@@ -58,3 +58,18 @@ void test_insert_multiple_node_to_tree(){
     ASSERT(&num[5] == res.left );
     ASSERT(NULL == res.right );
 }
+void test_insert_multiple_node_to__left_of_tree(){
+    BST tree = createTree(compareNodes);
+    int num[5] = {20,15,10,5,0};
+    Child_data res;
+
+    insertInTree(&tree, &num[0]);
+    insertInTree(&tree,&num[1]);
+    insertInTree(&tree,&num[2]);
+    insertInTree(&tree,&num[3]);
+    insertInTree(&tree,&num[4]);
+    
+    res = getChildData(tree,&num[3]);  
+    ASSERT(&num[4] == res.left );
+    ASSERT(NULL == res.right );
+}
