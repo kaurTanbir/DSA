@@ -92,7 +92,6 @@ void test_insert_multiple_node_to__right_of_tree(){
     insertInTree(&tree,&num[2]);
     insertInTree(&tree,&num[1]);
     insertInTree(&tree, &num[0]);
-    
     res = getChildData(tree,&num[1]);  
     ASSERT(&num[0] == res.right );
     ASSERT(NULL == res.left );
@@ -113,4 +112,45 @@ void test_insert_struct_as_child_to_root(){
     insertInTree(&tree,&acc2);
     res = getChildData(tree,&acc1);  
     ASSERT(&acc2 == res.right );
+}
+void test_get_child_of_nonexisting_parentData(){
+    BST tree = createTree(compareAccounts);
+    Child_data res,res1 = {NULL,NULL};
+    Account acc1 = {1,100},
+            acc2 = {2,67},
+            acc3 = {3,45};
+    ASSERT(insertInTree(&tree, &acc1));
+    ASSERT(&acc1 == getRootData(tree)); 
+    insertInTree(&tree, &acc2);
+    res = getChildData(tree,&acc1);  
+    ASSERT(res.left == res1.left);
+}
+
+void test_searching_root_in_tree(){
+    BST tree = createTree(compareAccounts);
+    Account acc1 = {1,100};
+    ASSERT(insertInTree(&tree, &acc1));
+    ASSERT(1 == search(tree,&acc1));
+}
+void test_search_child_of_existing_parentData(){
+    BST tree = createTree(compareAccounts);
+    Account acc1 = {1,100},
+            acc2 = {2,67};
+    insertInTree(&tree, &acc1);
+    insertInTree(&tree, &acc2);
+    ASSERT(1 == search(tree,&acc2));
+}
+void test_search_in_tree(){
+    BST tree = createTree(compareNodes);
+    int num[6] = {10,20,5,7,25,21};
+
+    insertInTree(&tree, &num[0]);
+    insertInTree(&tree,&num[1]);
+    insertInTree(&tree,&num[2]);
+    insertInTree(&tree,&num[3]);
+    insertInTree(&tree,&num[4]);
+    
+    ASSERT(1 == search(tree,&num[4]));
+    ASSERT(0 == search(tree,&num[5]));
+    
 }

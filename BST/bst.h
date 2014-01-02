@@ -14,3 +14,4 @@ void* getRootData(BST tree);
 BST createTree(Compare* comp);
 int insertInTree(BST* tree, void* dataToInsert);
 Child_data getChildData(BST tree,void* parentData);
+int search(BST tree,void* dataToSearch);

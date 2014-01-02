@@ -63,6 +63,7 @@ void* getRootData(BST tree){
 }
 Node* checkAllNode(Node* node,void* data, Compare comp){
     int compareResult;
+    if(node == NULL) return node;
     compareResult = comp(node->value, data);
     if(!compareResult) return node;
     if(compareResult > 0)
@@ -84,4 +85,10 @@ Child_data getChildData(BST tree, void *parentData){
     if(node->rightChild)
         result.right = node->rightChild->value;
     return result;
+}
+int search(BST tree,void* dataToSearch){
+    Node* matchedNode = getNode(tree, dataToSearch);
+    if(matchedNode)
+        return 1;
+    return 0;
 }

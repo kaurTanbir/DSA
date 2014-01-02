@@ -94,6 +94,26 @@ int main(){
 		test_insert_struct_as_child_to_root();
 	tearDown();
 	testEnded();
+	testStarted("test_get_child_of_nonexisting_parentData");
+	setup();
+		test_get_child_of_nonexisting_parentData();
+	tearDown();
+	testEnded();
+	testStarted("test_searching_root_in_tree");
+	setup();
+		test_searching_root_in_tree();
+	tearDown();
+	testEnded();
+	testStarted("test_search_child_of_existing_parentData");
+	setup();
+		test_search_child_of_existing_parentData();
+	tearDown();
+	testEnded();
+	testStarted("test_search_in_tree");
+	setup();
+		test_search_in_tree();
+	tearDown();
+	testEnded();
 
 	summarizeTestCount();
 	fixtureTearDown();
