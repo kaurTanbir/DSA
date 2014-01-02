@@ -69,6 +69,11 @@ int main(){
 		test_does_not_insert_duplicate_value_in_tree();
 	tearDown();
 	testEnded();
+	testStarted("test_insert_multiple_node_to_tree");
+	setup();
+		test_insert_multiple_node_to_tree();
+	tearDown();
+	testEnded();
 
 	summarizeTestCount();
 	fixtureTearDown();

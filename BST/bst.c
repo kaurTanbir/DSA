@@ -66,8 +66,8 @@ Node* checkAllNode(Node* node,void* data, Compare comp){
     compareResult = comp(node->value, data);
     if(!compareResult) return node;
     if(compareResult > 0)
-        return checkAllNode(node->rightChild, data,comp);
-    return checkAllNode(node->leftChild, data,comp);
+        return checkAllNode(node->leftChild, data,comp);
+    return checkAllNode(node->rightChild, data,comp);
 }
 
 Node* getNode(BST tree, void* data){
@@ -76,7 +76,7 @@ Node* getNode(BST tree, void* data){
     return checkAllNode(root, data, tree.comparator);
 }
 Child_data getChildData(BST tree, void *parentData){
-    Child_data result ;
+    Child_data result ={NULL,NULL};
     Node* node = getNode(tree, parentData);
     if(!node) return result;
     if(node->leftChild)
