@@ -84,6 +84,16 @@ int main(){
 		test_insert_multiple_node_to__right_of_tree();
 	tearDown();
 	testEnded();
+	testStarted("test_insert_struct_as_root_of_the_tree");
+	setup();
+		test_insert_struct_as_root_of_the_tree();
+	tearDown();
+	testEnded();
+	testStarted("test_insert_struct_as_child_to_root");
+	setup();
+		test_insert_struct_as_child_to_root();
+	tearDown();
+	testEnded();
 
 	summarizeTestCount();
 	fixtureTearDown();

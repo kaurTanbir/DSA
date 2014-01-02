@@ -3,8 +3,17 @@
 #include <stdlib.h>
 
 //create setup, tearDown, fixtureSetup, fixtureTearDown methods if needed
+typedef struct{
+    int acc_no;
+    double balance;
+}Account;
 int compareNodes(void* first, void* second){
     return *(int*)first - *(int*)second;
+}
+int compareAccounts(void* first, void* second){
+    Account* firstAccount = (Account*)first;
+    Account* secondAccount = (Account*)second;
+    return firstAccount->acc_no - secondAccount->acc_no;
 }
 
 void test_insert_root_of_the_tree(){
@@ -87,4 +96,21 @@ void test_insert_multiple_node_to__right_of_tree(){
     res = getChildData(tree,&num[1]);  
     ASSERT(&num[0] == res.right );
     ASSERT(NULL == res.left );
+}
+void test_insert_struct_as_root_of_the_tree(){
+    BST tree = createTree(compareAccounts);
+    Account acc1 = {1,100};
+    ASSERT(insertInTree(&tree, &acc1));
+    ASSERT(&acc1 == getRootData(tree));        
+}
+void test_insert_struct_as_child_to_root(){
+    BST tree = createTree(compareAccounts);
+    Child_data res;
+    Account acc1 = {1,100},
+            acc2 = {2,10};
+    ASSERT(insertInTree(&tree, &acc1));
+    ASSERT(&acc1 == getRootData(tree)); 
+    insertInTree(&tree,&acc2);
+    res = getChildData(tree,&acc1);  
+    ASSERT(&acc2 == res.right );
 }
