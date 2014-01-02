@@ -74,6 +74,16 @@ int main(){
 		test_insert_multiple_node_to_tree();
 	tearDown();
 	testEnded();
+	testStarted("test_insert_multiple_node_to__left_of_tree");
+	setup();
+		test_insert_multiple_node_to__left_of_tree();
+	tearDown();
+	testEnded();
+	testStarted("test_insert_multiple_node_to__right_of_tree");
+	setup();
+		test_insert_multiple_node_to__right_of_tree();
+	tearDown();
+	testEnded();
 
 	summarizeTestCount();
 	fixtureTearDown();
