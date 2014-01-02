@@ -59,6 +59,16 @@ int main(){
 		test_insert_child_to_root();
 	tearDown();
 	testEnded();
+	testStarted("test_insert_leftchild_and_rightchild_to_root");
+	setup();
+		test_insert_leftchild_and_rightchild_to_root();
+	tearDown();
+	testEnded();
+	testStarted("test_does_not_insert_duplicate_value_in_tree");
+	setup();
+		test_does_not_insert_duplicate_value_in_tree();
+	tearDown();
+	testEnded();
 
 	summarizeTestCount();
 	fixtureTearDown();

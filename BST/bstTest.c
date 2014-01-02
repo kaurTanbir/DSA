@@ -22,3 +22,23 @@ void test_insert_child_to_root(){
     res = getChildData(tree,&num[0]);  
 	ASSERT(&num[1] == res.right );
 }
+void test_insert_leftchild_and_rightchild_to_root(){
+    BST tree = createTree(compareNodes);
+    int num[3] = {10,20,5};
+    Child_data res;
+    insertInTree(&tree, &num[0]);
+    ASSERT(&num[0] == getRootData(tree));
+    insertInTree(&tree,&num[1]);
+    insertInTree(&tree,&num[2]);
+    res = getChildData(tree,&num[0]);  
+    ASSERT(&num[1] == res.right );
+    ASSERT(&num[2] == res.left );
+}
+void test_does_not_insert_duplicate_value_in_tree(){
+    BST tree = createTree(compareNodes);
+    int num[2] = {10,10};
+    Child_data res;
+    insertInTree(&tree, &num[0]);
+    ASSERT(&num[0] == getRootData(tree));
+    ASSERT( 0 == insertInTree(&tree,&num[1])) ;
+}
