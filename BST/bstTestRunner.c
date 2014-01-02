@@ -54,6 +54,11 @@ int main(){
 		test_insert_root_of_the_tree();
 	tearDown();
 	testEnded();
+	testStarted("test_insert_child_to_root");
+	setup();
+		test_insert_child_to_root();
+	tearDown();
+	testEnded();
 
 	summarizeTestCount();
 	fixtureTearDown();
